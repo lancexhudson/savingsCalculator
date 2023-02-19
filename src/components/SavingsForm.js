@@ -1,17 +1,20 @@
 import { useState } from 'react';
+
 const SavingsForm = ({ onAdd }) => {
-  const [text, setText] = useState('');
+  const [salary, setSalary] = useState('');
+  const [frequency, setFrequency] = useState('');
+  // const [text, setText] = useState('');
   const onSubmit = (e) => {
     e.preventDefault();
 
-    if (!text) {
+    if (!salary) {
       alert('Please enter in numeric form');
       return;
     }
 
-    onAdd({ text });
+    onAdd({ salary });
 
-    setText('');
+    setSalary('');
   };
   return (
     <form className="add-form" onSubmit={onSubmit}>
@@ -20,9 +23,18 @@ const SavingsForm = ({ onAdd }) => {
         <input
           type="text"
           id="userInput"
-          value={text}
-          onChange={(e) => setText(e.target.value)}
+          value={salary}
+          onChange={(e) => setSalary(e.target.value)}
         />
+      </div>
+      <div className="form-control">
+        <label id="text">Frequency of Pay:</label>
+        <select id="userInput">
+          <option value="weekly">Weekly</option>
+          <option value="bi-weekly">Bi-Weekly</option>
+          <option value="monthly">Monthly</option>
+          <option value="annually">Annually</option>
+        </select>
       </div>
       <input className="btn btn-block" type="submit" value="Submit" />
     </form>

@@ -3,16 +3,16 @@ import HomeBtn from './HomeBtn';
 import SavingsBtn from './SavingsBtn';
 import InvestingBtn from './InvestingBtn';
 import Retirement from './Retirement';
-const Header = ({ title }) => {
-  const onClick = () => {
-    console.log('Click');
-  };
+const Header = ({ title, onAdd }) => {
+  // const onClick = () => {
+  //   console.log('Click');
+  // };
   return (
     <header>
       <h1 className="header">{title}</h1>
       <nav>
-        <HomeBtn onclick={onClick} />
-        <SavingsBtn />
+        <HomeBtn />
+        <SavingsBtn onclick={onAdd} />
         <InvestingBtn />
         <Retirement />
       </nav>
